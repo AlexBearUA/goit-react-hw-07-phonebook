@@ -43,3 +43,11 @@ img {
 .list-is-empty {
   text-align: center;
 }
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  translate: 50% -50%;
+  color: grey;
+}
