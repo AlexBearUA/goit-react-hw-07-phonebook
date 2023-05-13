@@ -7,7 +7,7 @@ import { addContact } from 'redux/operations';
 
 import css from './ContactForm.module.css';
 
-export const ContactForm = () => {
+export const AddContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();

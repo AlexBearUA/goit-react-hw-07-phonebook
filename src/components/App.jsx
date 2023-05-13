@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { ContactForm } from './ContactForm/ContactForm';
+import { AddContactForm } from './AddContactForm/AddContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Loader } from './Loader/Loader';
@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <AddContactForm />
 
       <h2>Contacts</h2>
       <Filter />
