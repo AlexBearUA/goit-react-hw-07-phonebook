@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
-import { getConatcts } from 'redux/selectors';
+import { selectConatcts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
 import css from './ContactForm.module.css';
@@ -11,7 +11,7 @@ export const AddContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(getConatcts);
+  const contacts = useSelector(selectConatcts);
 
   const handleInputsChange = e => {
     const { name, value } = e.currentTarget;
