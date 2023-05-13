@@ -66,7 +66,7 @@ export const EditContactForm = ({ onClose, name, number, id }) => {
       <div className={css.EditFormBtns}>
         <button type="submit">Edit</button>
         <button type="button" onClick={onClose}>
-          Cansel
+          Cancel
         </button>
       </div>
     </form>
