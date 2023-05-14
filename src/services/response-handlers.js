@@ -12,20 +12,20 @@ export const handleFulfilled = state => {
   state.error = null;
 };
 export const handleFulfilledFetch = (state, action) => {
-  state.items = action.payload;
+  state.contacts = action.payload;
 };
 
 export const handleFulfilledAdd = (state, action) => {
-  state.items.unshift(action.payload);
+  state.contacts.unshift(action.payload);
 };
 
 export const handleFulfilledDel = (state, action) => {
-  state.items = state.items.filter(item => item.id !== action.payload.id);
+  state.contacts = state.contacts.filter(item => item.id !== action.payload.id);
 };
 
 export const handleFulfilledEdit = (state, action) => {
-  const index = state.items.findIndex(
+  const index = state.contacts.findIndex(
     contact => contact.id === action.payload.id
   );
-  state.items.splice(index, 1, action.payload);
+  state.contacts.splice(index, 1, action.payload);
 };
