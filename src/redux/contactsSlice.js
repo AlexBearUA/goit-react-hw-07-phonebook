@@ -17,21 +17,28 @@ import {
 
 const arrayOfThunks = [fetchContacts, addContact, deleteContact, editContact];
 
-const setThunkStatus = type => arrayOfThunks.map(thunk => thunk[type]);
+const setThunkStatus = status => arrayOfThunks.map(thunk => thunk[status]);
+
+const STATUS = {
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected',
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: { contacts: [], isLoading: false, error: null },
 
   extraReducers: builder => {
+    const { PENDING, FULFILLED, REJECTED } = STATUS;
     builder
       .addCase(fetchContacts.fulfilled, handleFulfilledFetch)
       .addCase(addContact.fulfilled, handleFulfilledAdd)
       .addCase(deleteContact.fulfilled, handleFulfilledDel)
       .addCase(editContact.fulfilled, handleFulfilledEdit)
-      .addMatcher(isAnyOf(...setThunkStatus('rejected')), handleRejected)
-      .addMatcher(isAnyOf(...setThunkStatus('pending')), handlePending)
-      .addMatcher(isAnyOf(...setThunkStatus('fulfilled')), handleFulfilled);
+      .addMatcher(isAnyOf(...setThunkStatus(REJECTED)), handleRejected)
+      .addMatcher(isAnyOf(...setThunkStatus(PENDING)), handlePending)
+      .addMatcher(isAnyOf(...setThunkStatus(FULFILLED)), handleFulfilled);
   },
 });
 
