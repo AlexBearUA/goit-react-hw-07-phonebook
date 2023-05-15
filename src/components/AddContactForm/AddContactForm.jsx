@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { selectConatcts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
-import css from './ContactForm.module.css';
+import css from './AddContactForm.module.css';
 
 export const AddContactForm = () => {
   const [name, setName] = useState('');
