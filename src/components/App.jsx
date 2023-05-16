@@ -35,7 +35,7 @@ export const App = () => {
       {contacts.length > 0 && !error ? (
         <ContactList contacts={contacts} />
       ) : (
-        <p className="list-is-empty">No contacts</p>
+        !isLoading && <p className="list-is-empty">No contacts</p>
       )}
       {error && <p>Something going wrong, please refresh page</p>}
     </div>
