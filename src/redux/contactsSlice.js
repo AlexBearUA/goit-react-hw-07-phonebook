@@ -15,9 +15,15 @@ import {
   handleFulfilledEdit,
 } from '../services/response-handlers';
 
-const arrayOfThunks = [fetchContacts, addContact, deleteContact, editContact];
+const arrayOfOperations = [
+  fetchContacts,
+  addContact,
+  deleteContact,
+  editContact,
+];
 
-const setThunkStatus = status => arrayOfThunks.map(thunk => thunk[status]);
+const setOperationStatus = status =>
+  arrayOfOperations.map(operation => operation[status]);
 
 const STATUS = {
   PENDING: 'pending',
@@ -36,9 +42,9 @@ const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, handleFulfilledAdd)
       .addCase(deleteContact.fulfilled, handleFulfilledDel)
       .addCase(editContact.fulfilled, handleFulfilledEdit)
-      .addMatcher(isAnyOf(...setThunkStatus(REJECTED)), handleRejected)
-      .addMatcher(isAnyOf(...setThunkStatus(PENDING)), handlePending)
-      .addMatcher(isAnyOf(...setThunkStatus(FULFILLED)), handleFulfilled);
+      .addMatcher(isAnyOf(...setOperationStatus(REJECTED)), handleRejected)
+      .addMatcher(isAnyOf(...setOperationStatus(PENDING)), handlePending)
+      .addMatcher(isAnyOf(...setOperationStatus(FULFILLED)), handleFulfilled);
   },
 });
 
